@@ -1,0 +1,23 @@
+{
+    "name": "bentools/api-platform-create-resource",
+    "description": "Allows creating resources through PUT operations.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Beno!t POLASZEK",
+            "email": "bpolaszek@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "BenTools\\ApiPlatform\\CreateResource\\": "src"
+        }
+    },
+    "require": {
+        "api-platform/core": "~2.5",
+        "symfony/dependency-injection": "~3.0|~4.0|~5.0",
+        "symfony/config": "~3.0|~4.0|~5.0",
+        "symfony/http-kernel": "~3.0|~4.0|~5.0"
+    }
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service id="BenTools\ApiPlatform\CreateResource\DataProvider\CreatableIdentifierDataProvider"
+                 class="BenTools\ApiPlatform\CreateResource\DataProvider\CreatableIdentifierDataProvider">
+            <argument type="tagged_iterator" tag="api_platform.item_data_provider" />
+            <argument type="service" id="BenTools\ApiPlatform\CreateResource\Factory\DefaultObjectFactory" />
+            <tag name="api_platform.item_data_provider" />
+        </service>
+
+        <service id="BenTools\ApiPlatform\CreateResource\Factory\DefaultObjectFactory"
+                 class="BenTools\ApiPlatform\CreateResource\Factory\DefaultObjectFactory">
+            <argument type="service" id="property_accessor" />
+            <argument type="service" id="api_platform.identifiers_extractor" />
+        </service>
+
+    </services>
+
+</container>
