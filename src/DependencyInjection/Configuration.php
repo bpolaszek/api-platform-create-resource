@@ -9,8 +9,13 @@ final class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('api_platform_create_resource');
+        if (\method_exists(TreeBuilder::class, 'root')) {
+            $treeBuilder = new TreeBuilder();
+            $rootNode = $treeBuilder->root('api_platform_create_resource');
+        } else {
+            $treeBuilder = new TreeBuilder('api_platform_create_resource');
+            $rootNode = $treeBuilder->getRootNode();
+        }
         $rootNode
             ->children()
                 ->arrayNode('allowed_classes')
